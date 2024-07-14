@@ -1,10 +1,6 @@
 require('dotenv').config()
 const express = require("express");
 const app = express();
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "default-src 'none'; img-src 'self' data:; script-src 'self'; style-src 'self';");
-    next();
-});
 const path = require("path")
 const methodOverride = require("method-override");
 const {checkAuthentication} = require("./middlewares/auth")

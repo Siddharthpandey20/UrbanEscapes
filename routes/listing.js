@@ -3,18 +3,8 @@ const LIST = require("../models/listing");
 const REVIEW = require("../models/review");
 const router = express.Router();
 const multer = require("multer");
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads');
-    },
-    filename: function (req, file, cb) {
-        const fileName = `${Date.now()} - ${file.originalname}`;
-        cb(null, fileName)
-    }
-  })
-  
-  const upload = multer({ storage: storage })
+const {cloudinary, storage} = require("../cloudConfig.js");
+const upload = multer({ storage });
 
 router.get("/add-new",(req,res)=>{
     return res.render("addListing",{
