@@ -70,6 +70,8 @@ router.get("/:id/edit", async (req, res) => {
 
 router.post("/:id/edit", upload.single("image"), async (req, res) => {
     try {
+        let url = req.file.path;
+        let filename = req.file.filename;
         const body = req.body;
         const updateData = {
             title: body.title,
@@ -77,7 +79,7 @@ router.post("/:id/edit", upload.single("image"), async (req, res) => {
             price: body.price,
             location: body.location,
             country: body.country,
-            ...(req.file ? { image: `uploads/${req.file.filename}` } : {})
+            ...(req.file ? { image: {url,filename} } : {})
         };
 
         const list = await LIST.findByIdAndUpdate(req.params.id, updateData, { new: true });
