@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" type="text/css" href="/css/rating.css"/>
+    <title>Listing</title>
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width:60%;
+            display: flex;
+            flex-direction: column;
+            padding-left: 20vh;
+            margin-top: 0;
+        }
+        .img{
+            width:600px;
+        }
+        img{
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav") %>
+    <% if (!locals.user) { %>
+        <div class="alert alert-danger " role="alert">
+            <%= err %>
+          </div>
+    <% } %>
+    <% if (locals.listz) { %>
+        <div class="container mt-5">
+            <label for="img" style="margin-left: 0.3vh;font-size: 45px;">
+                <%= listz.title %>
+            </label>
+            <div class="img">
+                <img src="/<%= listz.image %>" class="img-fluid" if="img">
+            </div>
+            <div class="owner" style="margin-left: 0.3vh;margin-top:2vh; font-size: large;">
+             Owned by <span style="font-weight: bolder;"><%= listz.createdBy.userName %></span>
+            </div>
+            <% if (listz.desc) { %>
+                <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                    <%= listz.desc %>
+                   </div>
+            <% } %>
+            <div class="destination" style="display: flex; gap: 1vh; ">
+                <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                    Country: <%= listz.country %>
+                   </div>
+                   <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                    Location: <%= listz.location %>
+                   </div>
+            </div>
+            <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                Price: <%= listz.price %>
+               </div>
+               <div class="buttons" style="margin-left: 0.3vh;margin-top:3vh; font-size: large; display: flex; gap:1vh;">
+                <% if(locals.user && user._id.toString() === listz.createdBy._id.toString()) { %>
+                    <a class="btn btn-dark"href="/listing/<%=listz.id%>/edit">Edit your listing</a>
+                        <form action="/listing/<%= listz._id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-dark">Delete your listing</button>
+                        </form>
+                   <% } %>
+               </div>
+               <hr></hr>
+               <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                <h2 style="font-weight: 500;">Leave a review</h2>
+                <p>Rating</p>
+               </div>
+               <form method="POST" action="/listing/<%= listz._id %>">
+                <fieldset class="starability-slot">
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" name="rating"/>
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" name="rating"/>
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" name="rating"/>
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" name="rating"/>
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" name="rating"/>
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+                  <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                    <label for="float">Comments</label>
+                    <div class="form-floating" id="float">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="comment"></textarea>
+                      </div>
+                   </div>
+                   <button type="submit" class="btn btn-dark" style="margin-top: 3vh;">Submit</button>
+               </form>
+               <hr></hr>
+               <% if (locals.reviews && locals.reviews.length>0) { %>
+                <div class="row" style="display: flex; flex-wrap: wrap; gap:1vh">
+                    <% reviews.forEach(review => { %>
+                        
+                            <div class="col-sm-5 mb-3 mb-sm-0">
+                              <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title">@<%= review.createdBy.userName %></h5>
+                                  <p class="starability-result" data-rating="<%=review.rating%>"></p>
+                                  <p class="card-text"><%= review.comment %></p>
+                                  <form action="/listing/<%= listz._id %>/review/<%= review._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-dark">Delete</button>
+                                </form>
+                                </div>
+                              </div>
+                            </div>
+                          
+                    <% }) %>
+                </div>
+               <% } %>
+               <hr></hr>
+               <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
+                <h2 style="font-weight: 500;">Where you'll be</h2>
+               </div>
+               </div>
+        </div>
+    <% } %>
+    <%- include("./partials/script") %>
+</body>
+</html>

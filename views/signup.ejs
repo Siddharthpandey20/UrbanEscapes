@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+    <title>Signup</title>
+    <style>
+        .container-signup{
+            height:70vh;
+            width:100svw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .form-signup{
+            width:70%;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <% if (locals.error) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+    <% } %>
+    <div class="container-signup">
+        <h1><i class="fa-solid fa-earth-americas" style="margin: 1vh;color:#e63946"></i>Signup</h1>
+        <form class="form-signup" action="/user/signup" method="POST">
+            <div class="mb-4">
+                <label for="fullName" class="form-label">Enter Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="fullName" name="userName" style="border: 0.5px solid rgb(206, 206, 206);">
+              </div>
+            <div class="mb-4">
+              <label for="email" class="form-label">Enter Email</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" style="border: 0.5px solid rgb(206, 206, 206);">
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Enter Password</label>
+              <input type="password" class="form-control" id="password" name="password" style="border: 0.5px solid rgb(206, 206, 206);">
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color:rgb(34, 34, 34);">Signup</button>
+          </form>
+    </div>
+    <%- include("./partials/script.ejs") %>
+</body>
+</html>

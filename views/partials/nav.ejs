@@ -1,0 +1,75 @@
+<style>
+  @font-face {
+    font-family: urban;
+    src: url('../../assets/PlaywriteCU-VariableFont_wght.ttf');
+  }
+  .nav-heading{
+    font-family: urban;
+    margin-top: 0.5vh ;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg " style="height: 100px;border-bottom: 0.5px solid rgb(206, 206, 206); background-color: white;">
+  <div class="container-fluid">
+    <h4 class="nav-heading" href="#"><i class="fa-solid fa-earth-americas" style="margin: 1vh;color:#e63946"></i>UrbanEscapes</h4>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin: 5vh;">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <% if (locals.user) { %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/listing/add-new">Add new listing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= user.userName %>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+            </ul>
+          </li>
+        <% } else {%>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/user/signup">Create Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/user/signin">Signin</a>
+          </li>
+          <%}%>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border:0.5px solid rgb(206, 206, 206);border-radius: 16px;">
+        <button class="btn" style="background-color: #e63946; color:white; border-radius: 16px;" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- <% if (locals.logged) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:50%;margin: auto;">
+    <%= logged %> <% if (locals.user) { %>
+      <%= user.userName %> !
+     <% } %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<% if (locals.log) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:50%;margin: auto;">
+    <%= log %> <% if (locals.users) { %>
+      <%= users.userName %> !1
+     <% } %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<% if (locals.success) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:50%;margin: auto;">
+    <%= success %> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %> -->

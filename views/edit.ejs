@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+    <title>Update Listing</title>
+    <style>
+        .container-signup {
+            height: 70vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            margin-top: 10vh;
+        }
+        .form-signup {
+            width: 65%;
+        }
+        .img {
+            width: 180px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="container-signup">
+        <form class="form-signup" action="/listing/<%= list._id %>/edit" method="POST" enctype="multipart/form-data" id="form">
+            <label for="form" style="font-size: 50px;">Update Listing</label>
+            <div class="mb-4 mt-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" value="<%= list.title %>" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);" required>
+            </div>
+            <label for="desc" class="form-label">Description</label>
+            <div class="form-floating mb-4">
+                <textarea class="form-control" placeholder="Enter description" id="desc" name="desc" style="resize: none;" required><%= list.desc %></textarea>
+            </div>
+            <div class="cardContainer" style="display: flex; flex-direction: column;">
+                <% if (list.image) { %>
+                    <img src="/<%= list.image %>" class="img">
+                <% } %>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" type="file" id="formFile" name="image">
+                <small class="form-text text-muted">Leave empty to keep the current image.</small>
+            </div>
+            <div style="display: flex; width: 100%; gap: 2vh;">
+                <div class="mb-4 mt-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" value="<%= list.price %>" class="form-control" id="price" name="price" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                </div>
+                <div class="mb-4 mt-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" value="<%= list.location %>" class="form-control" id="location" name="location" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                </div>
+            </div>
+            <div class="mb-4 mt-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" value="<%= list.country %>" class="form-control" id="country" name="country" style="border: 0.5px solid rgb(206, 206, 206);" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(34, 34, 34);">Update</button>
+        </form>
+    </div>
+    <%- include("./partials/script.ejs") %>
+</body>
+</html>

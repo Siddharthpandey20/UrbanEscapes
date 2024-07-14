@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+    <title>UrbanEscapes</title>
+    <style>
+        .container-signup{
+            height:70vh;
+            width:100svw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .form-signup{
+            width:65%;
+        }
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="container-signup">
+        <form class="form-signup" action="/listing/add-new" method="POST" enctype="multipart/form-data" id="form">
+            <label for="form" style="font-size: 50px;">Create new listing</label>
+            <div class="mb-4 mt-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);">
+            </div>
+            <label for="textarea" class="form-label">Description</label>
+            <div class="form-floating mb-4" id="textarea">
+                <textarea class="form-control" placeholder="Enter description" id="floatingTextarea" name="desc" style="resize:none;"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Image</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple name="image">
+              </div>
+              <div style="display: flex; width:100%; gap:2vh">
+                <div class="mb-4 mt-3">
+                    <label for="title" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="title" name="price" style="border: 0.5px solid rgb(206, 206, 206);">
+                  </div>
+                  <div class="mb-4 mt-3">
+                    <label for="title" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="title" name="location" style="border: 0.5px solid rgb(206, 206, 206);">
+                  </div>
+              </div>
+              <div class="mb-4 mt-3">
+                <label for="title" class="form-label">Country</label>
+                <input type="text" class="form-control" id="title" name="country" style="border: 0.5px solid rgb(206, 206, 206);">
+              </div>
+            <button type="submit" class="btn btn-primary" style="background-color:rgb(34, 34, 34);">Create</button>
+          </form>
+    </div>
+    <%- include("./partials/script.ejs") %>
+</body>
+</html>
