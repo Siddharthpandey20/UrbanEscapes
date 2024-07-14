@@ -22,7 +22,7 @@ router.post("/add-new",upload.single("image"),async (req,res)=>{
         price:body.price,
         location:body.location,
         country:body.country,
-        image:{url,filename},
+        image:url,
         createdBy:req.user._id,
     })
 
