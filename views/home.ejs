@@ -57,7 +57,7 @@
                 <% lists.forEach(list => { %>
                     <div class="cardContainer" style="display: flex; flex-direction: column;">
                         <a href="/listing/<%= list._id %>"><div class="overlay"><h6>View Listing</h6></div></a>
-                        <img src="<%=  list.image %>" class="img">
+                        <img src="<%=  list.image.url %>" class="img">
                         <h5 style="margin: 1vh; margin-bottom: 0.2vh;"><%= list.title %></h5>
                         <p style="margin-left: 1vh ;">₹<%= list.price %></p>
                     </div>

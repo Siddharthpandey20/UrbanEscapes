@@ -11,6 +11,7 @@ const listSchema = new mongoose.Schema({
     },
     image:{
         url:String,
+        filename:String,
     },
     price:{
         type:Number,
