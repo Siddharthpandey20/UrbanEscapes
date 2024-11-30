@@ -14,14 +14,19 @@
         .listcontainer{
             height:100%;
             width:100%;
-            gap:5vh;
+            gap:15vh;
             border-radius: 20px;
             object-fit: cover;
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            flex-shrink: 0;
-            margin-left: 8vh;
+            justify-content: space-around;
+            /* align-content: space-around; */
+            flex-shrink: 0;            
+            margin-top: 20px;
+            /* background-color: #ffedd8; */
+            /* background: linear-gradient(33deg, rgb(216, 245, 251) 35.56%, rgb(251, 165, 116) 84.47%); */
+            background: linear-gradient(33deg, rgb(216, 245, 251) 35.56%, rgb(251, 165, 116) 89.21%);   
+            padding-top: 4vh;
         }
         img{
             height:330px;
@@ -55,7 +60,7 @@
         <% if (locals.lists) { %>
             <div class="listcontainer">
                 <% lists.forEach(list => { %>
-                    <div class="cardContainer" style="display: flex; flex-direction: column;">
+                    <div class="cardContainer" style="display: flex; width=60vw; flex-direction: column;">
                         <a href="/listing/<%= list._id %>"><div class="overlay"><h6>View Listing</h6></div></a>
                         <img src="<%=  list.image.url %>" class="img">
                         <h5 style="margin: 1vh; margin-bottom: 0.2vh;"><%= list.title %></h5>

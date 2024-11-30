@@ -7,25 +7,61 @@
     font-family: urban;
     margin-top: 0.5vh ;
     }
+  #Add{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #Add:hover{
+    transform: translateY(-7px); 
+    box-shadow : 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: bold; 
+    background-color: #ced4da;
+  }
+  #home{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #home:hover{
+    transform: translateY(-7px); 
+    box-shadow : 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: bold; 
+    background-color: #ced4da;
+  }
+  #user{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #user:hover{
+    transform: translateY(-7px); 
+    box-shadow : 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: bold; 
+    background-color: #ced4da;
+  }
+  .ced4da{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .ced4da:hover{
+    transform: translateY(-7px); 
+    box-shadow : 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: bold; 
+    background-color: #ced4da;
+  }
+  
 </style>
-
 <nav class="navbar navbar-expand-lg " style="height: 100px;border-bottom: 0.5px solid rgb(206, 206, 206); background-color: white;">
   <div class="container-fluid">
-    <h4 class="nav-heading" href="#"><i class="fa-solid fa-earth-americas" style="margin: 1vh;color:#e63946"></i>UrbanEscapes</h4>
+    <h4 class="ced4da" href="#"><i class="fa-solid fa-earth-americas" style="margin: 1vh;color:#e63946"></i>Urban Escapes</h4>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin: 5vh;">
       <ul class="navbar-nav me-auto mb-3 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" id="home" aria-current="page" href="/">Home</a>
         </li>
         <% if (locals.user) { %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/listing/add-new">Add new listing</a>
+            <a class="nav-link active" id="Add" aria-current="page" href="/listing/add-new">Add new listing</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= user.userName %>
             </a>
             <ul class="dropdown-menu">
