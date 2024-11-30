@@ -24,34 +24,39 @@
     <%- include("./partials/nav.ejs") %>
     <div class="container-signup">
         <form class="form-signup" action="/listing/add-new" method="POST" enctype="multipart/form-data" id="form">
-            <label for="form" style="font-size: 50px;margin-left: 300px;font-weight:bold;color:rgb(2, 2, 2);border-radius: 700px;width: 40vw;padding-left:3vw;font-family: Copperplate, Papyrus, fantasy;margin-top: 60px; padding-top:2vh;">Add New Hotel</label>
+            <label for="form" style="font-size: 60px;margin-left: 300px;font-weight:bold;color:#000000;border-radius: 700px;width: 40vw;padding-left:3vw;  font-family: montserrat;font-style: italic;margin-top: 70px;">Add New Hotel</label>
             <div class="mb-4 mt-3">
-              <label for="title" class="form-label" style="color: black;font-weight: bold;font-size: 30px;font-family: Copperplate, Papyrus, fantasy;">Title</label>
-              <input type="text" placeholder="Enter title" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 2px;width: 30vw;font-size:18px;font-weight: bold;color: #ffffff;background-color: #d1e8ff;">
+              <label for="title" class="form-label" style="color: black;font-weight: bold;font-size: 30px;font-family: montserrat;font-style: italic;">Title</label>
+              <input type="text" placeholder="Enter Title" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 2px;width: 30vw;font-size:18px;font-weight: bold;font-family: montserrat;font-style: italic;">
             </div>
-            <label for="textarea" class="form-label"style="color: black;font-weight: bold;width: 30vw;font-size: 30px;font-family: Copperplate, Papyrus, fantasy;">Description</label>
+            <label for="textarea" class="form-label"style="color: black;font-weight: bold;width: 30vw;font-size: 30px;font-family: montserrat;font-style: italic;">Description</label>
             <div class="form-floating mb-4" id="textarea">
-                <textarea class="form-control" placeholder="Enter description" id="floatingTextarea" name="desc" style="resize:none;font-size:18px;font-weight: bold;color: #000000;background-color: #d1e8ff;"></textarea>
-              </div>
+              <!-- Floating label element -->
+              <label for="floatingTextarea" style="font-weight: bold; color: white; font-family: montserrat;">Description</label>
+              
+              <!-- Textarea with placeholder -->
+              <textarea class="form-control" placeholder="Enter description" id="floatingTextarea" name="desc" 
+                        style="resize:none;font-weight: bold;color:#000000;font-family: montserrat;font-style: italic;"></textarea>
+            </div>
               <div class="mb-3">
-                <label for="formFileMultiple" class="form-label"style="color: black;font-weight: bold;font-size: 30px;font-family:  Copperplate, Papyrus, fantasy;">Image</label>
+                <label for="formFileMultiple" class="form-label"style="color: black;font-weight: bold;font-size: 30px;font-family: montserrat;font-style: italic;">Image</label>
                 <input class="form-control" type="file" id="formFileMultiple" multiple name="image">
               </div>
               <div style="display: flex; width:100%; gap: 15vh;">
                 <div class="mb-4 mt-3">
-                    <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family:  Copperplate, Papyrus, fantasy;">Price</label>
-                    <input type="text" class="form-control" id="title" name="price" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 2px;background-color:#d1e8ff;">
+                    <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family: montserrat;font-style: italic;">Price-Range</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter Price-Range" name="price" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 2px;font-family: montserrat;font-style: italic;">
                   </div>
                   <div class="mb-4 mt-3">
-                    <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family:  Copperplate, Papyrus, fantasy;">Location</label>
-                    <input type="text" class="form-control" id="title" name="location" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 130px;background-color:#d1e8ff">
+                    <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family: montserrat;font-style: italic;">Location</label>
+                    <input type="text" class="form-control" placeholder="Enter Location" name="location" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 130px;font-family: montserrat;font-style: italic;">
                   </div>
               </div>
               <div class="mb-4 mt-3">
-                <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family:  Copperplate, Papyrus, fantasy;">Country</label>
-                <input type="text" class="form-control" id="title" name="country" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 10px;width: 20vw;background-color: #d1e8ff">
+                <label for="title" class="form-label"style="color: black;font-weight: bold;font-size:30px;font-family: montserrat;font-style: italic;">Country</label>
+                <input type="text" class="form-control" id="title" name="country" placeholder= "Enter Country" style="border: 0.5px solid rgb(206, 206, 206);margin-right: 10px;width: 20vw;font-family: montserrat;font-style: italic;">
               </div>
-            <button type="submit" class="btn btn-primary" style="background-color:whitesmoke;color:black;">Create</button>
+            <button type="submit" class="btn btn-primary" style="background-color:whitesmoke;color:black;font-family: montserrat;font-style: italic;">Create</button>
           </form>
     </div>
     <%- include("./partials/script.ejs") %>

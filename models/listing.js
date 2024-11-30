@@ -14,7 +14,7 @@ const listSchema = new mongoose.Schema({
         filename:String,
     },
     price:{
-        type:Number,
+        type:String,
         required:true,
     },
     location:{

@@ -12,7 +12,7 @@
             width:60%;
             display: flex;
             flex-direction: column;
-            padding-left: 30vh;
+            padding-left: 24vh;
             margin-top: 0;
             background:linear-gradient(33deg, rgb(216, 245, 251) 35.56%, rgb(251, 165, 116) 89.21%) ;
         }
@@ -56,7 +56,7 @@
                    </div>
             </div>
             <div class="desc" style="margin-left: 0.3vh;margin-top:0.8vh; font-size: large;">
-                Price: <%= listz.price %>
+                Price-Range: <%= listz.price %>
                </div>
                <div class="buttons" style="margin-left: 0.3vh;margin-top:3vh; font-size: large; display: flex; gap:1vh;">
                 <% if(locals.user && user._id.toString() === listz.createdBy._id.toString()) { %>

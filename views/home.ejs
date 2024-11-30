@@ -61,10 +61,10 @@
             <div class="listcontainer">
                 <% lists.forEach(list => { %>
                     <div class="cardContainer" style="display: flex; width=60vw; flex-direction: column;">
-                        <a href="/listing/<%= list._id %>"><div class="overlay"><h6>View Listing</h6></div></a>
+                        <a href="/listing/<%= list._id %>"><div class="overlay"><h6 style="font-family: montserrat;font-style: italic;">View Listing</h6></div></a>
                         <img src="<%=  list.image.url %>" class="img">
-                        <h5 style="margin: 1vh; margin-bottom: 0.2vh;"><%= list.title %></h5>
-                        <p style="margin-left: 1vh ;">₹<%= list.price %></p>
+                        <h5 style="margin: 1vh; margin-bottom: 0.2vh;font-family: montserrat;font-style: italic;"><%= list.title %></h5>
+                        <p style="margin-left: 1vh ;font-family: montserrat;font-style: italic;">Price-Range:₹<%= list.price %></p>
                     </div>
                     <% }) %>
             </div>

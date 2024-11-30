@@ -26,15 +26,15 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <div class="container-signup">
-        <form class="form-signup" action="/listing/<%= list._id %>/edit" method="POST" enctype="multipart/form-data" id="form">
-            <label for="form" style="font-size: 50px;">Update Listing</label>
+        <form class="form-signup" action="/listing/<%= list._id %>/edit" method="POST" style="margin-top:40vh;background: linear-gradient(33deg, rgb(216, 245, 251) 35.56%, rgb(251, 165, 116) 89.21%);border-radius: 5px;padding-left: 5vh;padding-right: 5vh;padding-bottom: 3vh; "enctype="multipart/form-data" id="form">
+            <label for="form" style="font-size: 50px;font-family: montserrat;font-style: italic;font-weight: bolder;">Update Listing</label>
             <div class="mb-4 mt-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" value="<%= list.title %>" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                <label for="title" class="form-label" style="font-size:23px; montserrat;font-style: italic;font-weight: bold;">Title</label>
+                <input type="text" value="<%= list.title %>" class="form-control" id="title" name="title" style="border: 0.5px solid rgb(206, 206, 206);font-family: montserrat;font-style: italic;" required>
             </div>
-            <label for="desc" class="form-label">Description</label>
+            <label for="desc" class="form-label" style="font-size:23px;font-family: montserrat;font-style: italic;font-weight: bold;">Description</label>
             <div class="form-floating mb-4">
-                <textarea class="form-control" placeholder="Enter description" id="desc" name="desc" style="resize: none;" required><%= list.desc %></textarea>
+                <textarea class="form-control" placeholder="Enter description" id="desc" name="desc" style="resize: none;font-family: montserrat;font-style: italic;" required><%= list.desc %></textarea>
             </div>
             <div class="cardContainer" style="display: flex; flex-direction: column;">
                 <% if (list.image) { %>
@@ -42,25 +42,25 @@
                 <% } %>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Image</label>
+                <label for="formFile" class="form-label" style="font-size:23px;font-family: montserrat;font-style: italic;font-weight: bold;">Image</label>
                 <input class="form-control" type="file" id="formFile" name="image">
                 <small class="form-text text-muted">Leave empty to keep the current image.</small>
             </div>
             <div style="display: flex; width: 100%; gap: 2vh;">
                 <div class="mb-4 mt-3">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="text" value="<%= list.price %>" class="form-control" id="price" name="price" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                    <label for="price" class="form-label" style="font-size:23px;font-family: montserrat;font-style: italic;font-weight: bold;">Price</label>
+                    <input type="text" value="<%= list.price %>" class="form-control" id="price" name="price" style="border: 0.5px solid rgb(206, 206, 206);font-family: montserrat;font-style: italic;;" required>
                 </div>
                 <div class="mb-4 mt-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" value="<%= list.location %>" class="form-control" id="location" name="location" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                    <label for="location" class="form-label" style="font-size:23px;font-family: montserrat;font-style: italic;font-weight: bold;">Location</label>
+                    <input type="text" value="<%= list.location %>" class="form-control" id="location" name="location" style="border: 0.5px solid rgb(206, 206, 206); font-family: montserrat;font-style: italic;" required>
                 </div>
             </div>
             <div class="mb-4 mt-3">
-                <label for="country" class="form-label">Country</label>
-                <input type="text" value="<%= list.country %>" class="form-control" id="country" name="country" style="border: 0.5px solid rgb(206, 206, 206);" required>
+                <label for="country" class="form-label" style="font-size:23px;font-family: montserrat;font-style: italic;font-weight: bold;">Country</label>
+                <input type="text" value="<%= list.country %>" class="form-control" id="country" name="country" style="border: 0.5px solid rgb(206, 206, 206);font-family: montserrat;font-style: italic;" required>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: rgb(34, 34, 34);">Update</button>
+            <button type="submit" class="btn btn-primary" style="border-color:black;background-color: black;font-family: montserrat;font-style: italic;font-weight: bold;">Update</button>
         </form>
     </div>
     <%- include("./partials/script.ejs") %>
